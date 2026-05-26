@@ -1,0 +1,112 @@
+/**
+ * Sessions Page Styles (reuse common patterns)
+ */
+
+.sessions-page {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.sessions-container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 1.5rem;
+}
+
+.sessions-list {
+  background: white;
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e5e9ef;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.session-item {
+  padding: 1rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 250ms ease;
+  margin-bottom: 0.5rem;
+}
+
+.session-item:hover {
+  background: #f7f8fa;
+  border-color: #e5e9ef;
+}
+
+.session-item.active {
+  background: #eef2ff;
+  border-color: #4f46e5;
+}
+
+.session-date {
+  font-size: 0.8rem;
+  color: #8b96a8;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.session-content h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.95rem;
+  color: #111827;
+}
+
+.session-content p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #5f6b7d;
+}
+
+.session-detail {
+  background: white;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e5e9ef;
+}
+
+.session-detail h2 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.5rem;
+  color: #111827;
+}
+
+.notes-section {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: #f7f8fa;
+  border-radius: 10px;
+}
+
+.notes-section h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.notes-section p {
+  margin: 0;
+  color: #5f6b7d;
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .sessions-container {
+    grid-template-columns: 1fr;
+  }
+
+  .sessions-list {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sessions-container {
+    grid-template-columns: 1fr;
+  }
+}
