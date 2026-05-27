@@ -1,5 +1,6 @@
 /**
  * Card Styles
+ * Professional card component with variants
  */
 
 .card {
@@ -9,37 +10,74 @@
   box-shadow: var(--shadow-xs);
   overflow: hidden;
   transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
 }
 
-.card-hoverable {
+.card.elevated {
+  box-shadow: var(--shadow-md);
+}
+
+.card.hoverable {
   cursor: pointer;
 }
 
-.card-hoverable:hover {
+.card.hoverable:hover {
   border-color: var(--brand);
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
 
+.card.bordered {
+  border: 2px solid var(--border);
+}
+
+.card.interactive:active {
+  transform: translateY(0);
+}
+
+/* Card Sections */
 .card-header {
   padding: var(--space-6);
   border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
 }
 
 .card-header h2 {
   margin: 0;
   font-size: var(--font-size-xl);
   color: var(--text);
+  font-weight: var(--font-weight-semibold);
 }
 
 .card-header h3 {
   margin: 0;
   font-size: var(--font-size-lg);
   color: var(--text);
+  font-weight: var(--font-weight-semibold);
+}
+
+.card-header-subtitle {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  font-weight: var(--font-weight-regular);
 }
 
 .card-body {
   padding: var(--space-6);
+  flex: 1;
+}
+
+.card-body.dense {
+  padding: var(--space-4);
+}
+
+.card-body.compact {
+  padding: var(--space-3);
 }
 
 .card-body:only-child {
@@ -53,4 +91,81 @@
   display: flex;
   gap: var(--space-3);
   justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card-footer.left {
+  justify-content: flex-start;
+}
+
+.card-footer.spread {
+  justify-content: space-between;
+}
+
+/* Card Variants */
+.card.success {
+  border-left: 4px solid var(--success);
+}
+
+.card.success .card-header {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.05) 0%, transparent 100%);
+}
+
+.card.warning {
+  border-left: 4px solid var(--warning);
+}
+
+.card.warning .card-header {
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.05) 0%, transparent 100%);
+}
+
+.card.error {
+  border-left: 4px solid var(--error);
+}
+
+.card.error .card-header {
+  background: linear-gradient(90deg, rgba(220, 38, 38, 0.05) 0%, transparent 100%);
+}
+
+.card.info {
+  border-left: 4px solid var(--info);
+}
+
+.card.info .card-header {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.05) 0%, transparent 100%);
+}
+
+/* Grid of Cards */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+.cards-grid.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.cards-grid.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .cards-grid.cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-grid,
+  .cards-grid.cols-2,
+  .cards-grid.cols-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

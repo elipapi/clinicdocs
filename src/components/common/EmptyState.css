@@ -1,5 +1,6 @@
 /**
  * Empty State Styles
+ * Professional empty state indicators
  */
 
 .empty-state {
@@ -10,26 +11,77 @@
   padding: var(--space-12);
   text-align: center;
   min-height: 300px;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.empty-state.compact {
+  padding: var(--space-8);
+  min-height: 200px;
+}
+
+.empty-state.tall {
+  min-height: 500px;
 }
 
 .empty-state-icon {
   font-size: 3.5rem;
   margin-bottom: var(--space-4);
-  opacity: 0.6;
+  opacity: 0.5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: var(--surface-muted);
+  border-radius: var(--radius-lg);
+}
+
+.empty-state-icon.success {
+  color: var(--success);
+  background: var(--success-50);
+}
+
+.empty-state-icon.warning {
+  color: var(--warning);
+  background: var(--warning-50);
+}
+
+.empty-state-icon.error {
+  color: var(--error);
+  background: var(--error-50);
+}
+
+.empty-state-icon.info {
+  color: var(--info);
+  background: var(--info-50);
 }
 
 .empty-state-title {
   margin: 0 0 var(--space-2) 0;
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-semibold);
-  color: var(--text-soft);
+  color: var(--text);
+}
+
+.empty-state-title.lg {
+  font-size: var(--font-size-2xl);
 }
 
 .empty-state-description {
   margin: 0 0 var(--space-6) 0;
   font-size: var(--font-size-sm);
   color: var(--text-muted);
-  max-width: 300px;
+  max-width: 350px;
+  line-height: var(--line-height-normal);
+}
+
+.empty-state-actions {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .empty-state-action {
@@ -47,4 +99,44 @@
 .empty-state-action:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.empty-state-action.secondary {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.empty-state-action.secondary:hover {
+  background: var(--surface-hover);
+  border-color: var(--brand);
+}
+
+/* Empty State in Card Context */
+.card .empty-state {
+  border: none;
+  background: transparent;
+  padding: var(--space-8);
+}
+
+@media (max-width: 768px) {
+  .empty-state {
+    padding: var(--space-6);
+    min-height: 250px;
+  }
+
+  .empty-state-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 2rem;
+  }
+
+  .empty-state-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .empty-state-actions button {
+    width: 100%;
+  }
 }

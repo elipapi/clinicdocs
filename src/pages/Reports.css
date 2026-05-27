@@ -1,103 +1,267 @@
 /**
  * Reports Page Styles
+ * Professional report management interface
  */
 
 .reports-page {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
+  padding: var(--space-8);
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.page-header h1 {
+  margin: 0 0 var(--space-2) 0;
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+}
+
+.page-actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.reports-filter {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.reports-filter input,
+.reports-filter select {
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family);
 }
 
 .reports-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  gap: var(--space-6);
 }
 
 .report-card {
-  background: white;
-  border-radius: 14px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  border: 1px solid #e5e9ef;
-  transition: all 300ms ease;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition-base);
   display: flex;
   flex-direction: column;
 }
 
 .report-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border-color: #4f46e5;
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand);
+  cursor: pointer;
 }
 
 .report-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #e5e9ef;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border);
 }
 
 .report-header h3 {
   margin: 0;
-  font-size: 1.1rem;
-  color: #111827;
+  font-size: var(--font-size-lg);
+  color: var(--text);
+  font-weight: var(--font-weight-semibold);
 }
 
 .report-date {
-  font-size: 0.8rem;
-  color: #8b96a8;
-  font-weight: 600;
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  font-weight: var(--font-weight-medium);
+}
+
+.report-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+}
+
+.report-status.draft {
+  background: var(--warning-light);
+  color: var(--warning);
+}
+
+.report-status.completed {
+  background: var(--success-light);
+  color: var(--success);
+}
+
+.report-status.archived {
+  background: var(--surface-muted);
+  color: var(--text-muted);
+}
+
+.report-patient {
+  margin: 0 0 var(--space-2) 0;
+  font-size: var(--font-size-sm);
+  color: var(--text-soft);
+  font-weight: var(--font-weight-medium);
 }
 
 .report-summary {
-  margin: 0 0 1rem 0;
-  color: #5f6b7d;
-  line-height: 1.6;
+  margin: 0 0 var(--space-4) 0;
+  color: var(--text);
+  line-height: var(--line-height-normal);
+  font-size: var(--font-size-sm);
   flex: 1;
 }
 
 .report-recommendations {
-  margin: 1rem 0;
-  padding: 1rem;
-  background: #f7f8fa;
-  border-radius: 8px;
+  margin: var(--space-4) 0;
+  padding: var(--space-4);
+  background: var(--surface-muted);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--info);
 }
 
 .report-recommendations strong {
   display: block;
-  font-size: 0.9rem;
-  color: #111827;
-  margin-bottom: 0.5rem;
+  font-size: var(--font-size-sm);
+  color: var(--text);
+  margin-bottom: var(--space-2);
+  font-weight: var(--font-weight-semibold);
 }
 
 .report-recommendations ul {
   margin: 0;
-  padding-left: 1.25rem;
+  padding-left: var(--space-6);
+  list-style: none;
 }
 
 .report-recommendations li {
-  font-size: 0.9rem;
-  color: #5f6b7d;
-  margin-bottom: 0.3rem;
+  font-size: var(--font-size-sm);
+  color: var(--text-soft);
+  margin-bottom: var(--space-1);
+  line-height: var(--line-height-normal);
+}
+
+.report-recommendations li:before {
+  content: '✓ ';
+  color: var(--success);
+  font-weight: bold;
+  margin-right: var(--space-1);
+}
+
+.report-footer {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
 }
 
 .btn-link {
   background: none;
   border: none;
-  color: #4f46e5;
-  font-weight: 600;
+  color: var(--brand);
+  font-weight: var(--font-weight-semibold);
   cursor: pointer;
-  padding: 0;
-  margin-top: auto;
+  padding: var(--space-2) var(--space-3);
+  margin: 0;
   text-align: left;
-  transition: all 250ms ease;
-  font-size: 0.95rem;
+  transition: all var(--transition-base);
+  font-size: var(--font-size-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
 }
 
 .btn-link:hover {
+  color: var(--brand-dark);
+  text-decoration: underline;
+}
+
+.btn-link.secondary {
+  color: var(--text-soft);
+}
+
+.btn-link.secondary:hover {
+  color: var(--text);
+}
+
+.btn-link.danger {
+  color: var(--error);
+}
+
+.btn-link.danger:hover {
+  color: #b91c1c;
+}
+
+/* Empty State */
+.reports-empty {
+  text-align: center;
+  padding: var(--space-12);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .reports-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .reports-page {
+    padding: var(--space-4);
+  }
+
+  .reports-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .page-header h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  .reports-filter {
+    flex-direction: column;
+  }
+
+  .reports-filter input,
+  .reports-filter select {
+    width: 100%;
+  }
+}
   color: #2b32a8;
   text-decoration: underline;
 }

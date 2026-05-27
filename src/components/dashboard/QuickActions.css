@@ -1,5 +1,6 @@
 /**
  * Quick Actions Styles
+ * Fast access buttons with professional styling
  */
 
 .quick-actions {
@@ -7,7 +8,7 @@
 }
 
 .quick-actions-title {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   color: var(--text-soft);
   margin: 0 0 var(--space-4) 0;
@@ -33,14 +34,39 @@
   flex-direction: column;
   gap: var(--space-3);
   font-family: var(--font-family);
+  position: relative;
+  overflow: hidden;
+}
+
+.quick-action-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transition: left var(--transition-slow);
 }
 
 .quick-action-btn:hover {
   transform: translateY(-4px);
 }
 
+.quick-action-btn:hover::before {
+  left: 100%;
+}
+
 .action-icon {
-  font-size: 1.8rem;
+  font-size: 2rem;
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
 }
 
 .action-label {
@@ -50,8 +76,9 @@
 }
 
 .action-desc {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: var(--text-muted);
+  line-height: var(--line-height-normal);
 }
 
 /* Color variants */
@@ -65,6 +92,11 @@
   box-shadow: 0 8px 20px rgba(79, 70, 229, 0.1);
 }
 
+.quick-action-btn.action-blue .action-icon {
+  background: var(--brand-light);
+  color: var(--brand);
+}
+
 .quick-action-btn.action-green {
   border-color: var(--success);
 }
@@ -73,6 +105,11 @@
   border-color: var(--success);
   background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(16, 185, 129, 0.02) 100%);
   box-shadow: 0 8px 20px rgba(16, 185, 129, 0.1);
+}
+
+.quick-action-btn.action-green .action-icon {
+  background: var(--success-light);
+  color: var(--success);
 }
 
 .quick-action-btn.action-purple {
@@ -85,8 +122,30 @@
   box-shadow: 0 8px 20px rgba(139, 92, 246, 0.1);
 }
 
+.quick-action-btn.action-purple .action-icon {
+  background: #f3e8ff;
+  color: #8b5cf6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .quick-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
+  .quick-actions {
+    margin-bottom: var(--space-6);
+  }
+
   .quick-actions-grid {
     grid-template-columns: 1fr;
+  }
+
+  .action-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
   }
 }

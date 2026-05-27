@@ -1,11 +1,12 @@
 /**
  * Stats Cards Styles
+ * Professional key metric displays with visual hierarchy
  */
 
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--space-5);
+  gap: var(--space-6);
   margin-bottom: var(--space-8);
 }
 
@@ -55,6 +56,13 @@
 
 .stat-icon {
   font-size: var(--font-size-2xl);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
 }
 
 .stat-label {
@@ -72,21 +80,61 @@
   letter-spacing: -0.01em;
 }
 
+.stat-change {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  margin-top: var(--space-2);
+}
+
+.stat-change.positive {
+  color: var(--success);
+}
+
+.stat-change.negative {
+  color: var(--error);
+}
+
 /* Color variants */
 .stat-card.stat-blue {
   border-left-color: var(--brand);
+}
+
+.stat-card.stat-blue .stat-icon {
+  background: var(--brand-light);
+  color: var(--brand);
 }
 
 .stat-card.stat-green {
   border-left-color: var(--success);
 }
 
+.stat-card.stat-green .stat-icon {
+  background: var(--success-light);
+  color: var(--success);
+}
+
 .stat-card.stat-purple {
   border-left-color: #8b5cf6;
 }
 
+.stat-card.stat-purple .stat-icon {
+  background: #f3e8ff;
+  color: #8b5cf6;
+}
+
 .stat-card.stat-orange {
   border-left-color: var(--warning);
+}
+
+.stat-card.stat-orange .stat-icon {
+  background: var(--warning-light);
+  color: var(--warning);
+}
+
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -104,8 +152,8 @@
   .stats-grid {
     grid-template-columns: 1fr;
   }
-}
 
-    grid-template-columns: 1fr;
+  .stat-body {
+    padding: var(--space-4);
   }
 }
