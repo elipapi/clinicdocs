@@ -1,19 +1,20 @@
 /**
  * Topbar Styles
+ * Professional top navigation bar with search and user profile
  */
 
 .topbar {
-  background: white;
-  border-bottom: 1px solid #e5e9ef;
-  padding: 1rem 1.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-4) var(--space-6);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  gap: var(--space-8);
+  box-shadow: var(--shadow-sm);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: var(--z-sticky);
 }
 
 .topbar-search {
@@ -26,69 +27,70 @@
 
 .search-icon {
   position: absolute;
-  left: 1rem;
-  font-size: 1rem;
+  left: var(--space-4);
+  font-size: var(--font-size-lg);
   pointer-events: none;
-  color: #8b96a8;
+  color: var(--text-muted);
 }
 
 .search-input {
   width: 100%;
-  padding: 0.75rem 1rem 0.75rem 2.5rem;
-  border: 1px solid #e5e9ef;
-  border-radius: 10px;
-  background: #f7f8fa;
-  font-size: 0.95rem;
-  color: #111827;
-  transition: all 250ms ease;
+  padding: var(--space-3) var(--space-4) var(--space-3) calc(var(--space-4) + 1.5rem);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface-muted);
+  font-size: var(--font-size-base);
+  color: var(--text);
+  font-family: var(--font-family);
+  transition: all var(--transition-base);
 }
 
 .search-input::placeholder {
-  color: #8b96a8;
+  color: var(--text-muted);
 }
 
 .search-input:focus {
   outline: none;
-  background: white;
-  border-color: #4f46e5;
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  background: var(--surface);
+  border-color: var(--brand);
+  box-shadow: var(--shadow-focus);
 }
 
 .topbar-actions {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: var(--space-6);
 }
 
 .notification-btn {
   background: none;
   border: none;
-  font-size: 1.25rem;
+  font-size: var(--font-size-xl);
   cursor: pointer;
   position: relative;
-  padding: 0.5rem;
-  transition: all 250ms ease;
-  border-radius: 8px;
+  padding: var(--space-2);
+  transition: all var(--transition-base);
+  border-radius: var(--radius-md);
 }
 
 .notification-btn:hover {
-  background: #f7f8fa;
+  background: var(--surface-muted);
 }
 
 .notification-badge {
   position: absolute;
   top: 0;
   right: 0;
-  background: #ef4444;
+  background: var(--error);
   color: white;
-  font-size: 0.7rem;
+  font-size: var(--font-size-xs);
   width: 20px;
   height: 20px;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  font-weight: 700;
-  border: 2px solid white;
+  font-weight: var(--font-weight-bold);
+  border: 2px solid var(--surface);
 }
 
 .user-profile {
@@ -98,46 +100,63 @@
 
 .profile-btn {
   background: none;
-  border: 1px solid #e5e9ef;
-  padding: 0.5rem 0.75rem;
-  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: var(--space-3);
   cursor: pointer;
-  transition: all 250ms ease;
+  transition: all var(--transition-base);
 }
 
 .profile-btn:hover {
-  background: #f7f8fa;
-  border-color: #4f46e5;
+  background: var(--surface-muted);
+  border-color: var(--brand);
 }
 
 .profile-avatar {
   width: 40px;
   height: 40px;
+  min-width: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #4f46e5 0%, #10b981 100%);
+  background: linear-gradient(135deg, var(--brand) 0%, var(--success) 100%);
   color: white;
   display: grid;
   place-items: center;
-  font-weight: 700;
-  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
 }
 
 .profile-info {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  gap: var(--space-1);
 }
 
 .profile-name {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #111827;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text);
 }
 
 .profile-role {
-  font-size: 0.75rem;
-  color: #8b96a8;
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .topbar {
+    padding: var(--space-3) var(--space-4);
+    gap: var(--space-4);
+  }
+
+  .topbar-search {
+    max-width: 200px;
+  }
+
+  .profile-info {
+    display: none;
+  }
 }

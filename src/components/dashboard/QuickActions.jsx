@@ -1,8 +1,9 @@
 /**
  * Quick Actions Component
- * Fast access to common tasks
+ * Fast access to common tasks with improved UX
  */
 
+import { Button } from '../common'
 import './QuickActions.css'
 
 export const QuickActions = ({ onNewPatient, onLogSession, onGenerateReport }) => {
@@ -12,7 +13,7 @@ export const QuickActions = ({ onNewPatient, onLogSession, onGenerateReport }) =
       icon: '➕',
       label: 'New Patient',
       description: 'Add a new patient',
-      color: 'blue',
+      variant: 'blue',
       onClick: onNewPatient,
     },
     {
@@ -20,7 +21,7 @@ export const QuickActions = ({ onNewPatient, onLogSession, onGenerateReport }) =
       icon: '📋',
       label: 'Log Session',
       description: 'Record a treatment session',
-      color: 'green',
+      variant: 'green',
       onClick: onLogSession,
     },
     {
@@ -28,7 +29,7 @@ export const QuickActions = ({ onNewPatient, onLogSession, onGenerateReport }) =
       icon: '📄',
       label: 'Generate Report',
       description: 'Create treatment report',
-      color: 'purple',
+      variant: 'purple',
       onClick: onGenerateReport,
     },
   ]
@@ -40,7 +41,7 @@ export const QuickActions = ({ onNewPatient, onLogSession, onGenerateReport }) =
         {actions.map((action) => (
           <button
             key={action.id}
-            className={`quick-action-btn action-${action.color}`}
+            className={`quick-action-btn action-${action.variant}`}
             onClick={action.onClick}
           >
             <span className="action-icon">{action.icon}</span>

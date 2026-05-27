@@ -1,8 +1,10 @@
 /**
  * Dashboard Page
+ * Overview of clinic operations and recent activity
  */
 
 import { usePatients, useSessions } from '../hooks'
+import { Card, CardHeader, CardBody, Badge, EmptyState } from '../components/common'
 import { StatsCards, RecentActivity, QuickActions } from '../components/dashboard'
 import './Dashboard.css'
 
@@ -48,41 +50,49 @@ export const Dashboard = ({ onNavigatePage }) => {
       <div className="dashboard-grid">
         <RecentActivity sessions={sessions} patients={patients} />
 
-        <div className="insights-panel panel">
-          <h2>AI Treatment Insights</h2>
-          {patients.length > 0 ? (
-            <div className="insights-content">
-              <div className="insight-item">
-                <h3>Top Condition</h3>
-                <p className="insight-value">
-                  {patients[0].condition}
-                </p>
+        <Card className="insights-card">
+          <CardHeader>
+            <h2>AI Treatment Insights</h2>
+          </CardHeader>
+          <CardBody>
+            {patients.length > 0 ? (
+              <div className="insights-content">
+                <div className="insight-item">
+                  <h3>Top Condition</h3>
+                  <p className="insight-value">
+                    {patients[0].condition}
+                  </p>
+                </div>
+                <div className="insight-item">
+                  <h3>Average Adherence</h3>
+                  <p className="insight-value">
+                    {(
+                      patients.reduce((sum, p) => sum + p.adherence, 0) /
+                      patients.length
+                    ).toFixed(0)}
+                    %
+                  </p>
+                </div>
+                <div className="insight-item">
+                  <h3>Average Pain Level</h3>
+                  <p className="insight-value">
+                    {(
+                      patients.reduce((sum, p) => sum + p.painLevel, 0) /
+                      patients.length
+                    ).toFixed(1)}
+                    /10
+                  </p>
+                </div>
               </div>
-              <div className="insight-item">
-                <h3>Average Adherence</h3>
-                <p className="insight-value">
-                  {(
-                    patients.reduce((sum, p) => sum + p.adherence, 0) /
-                    patients.length
-                  ).toFixed(0)}
-                  %
-                </p>
-              </div>
-              <div className="insight-item">
-                <h3>Average Pain Level</h3>
-                <p className="insight-value">
-                  {(
-                    patients.reduce((sum, p) => sum + p.painLevel, 0) /
-                    patients.length
-                  ).toFixed(1)}
-                  /10
-                </p>
-              </div>
-            </div>
-          ) : (
-            <p className="empty-state">No patient data available yet.</p>
-          )}
-        </div>
+            ) : (
+              <EmptyState
+                icon="🔬"
+                title="No Insights Yet"
+                description="Add patients to see treatment insights"
+              />
+            )}
+          </CardBody>
+        </Card>
       </div>
     </div>
   )

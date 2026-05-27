@@ -1,8 +1,9 @@
 /**
  * Stats Cards Component
- * Displays key statistics
+ * Displays key statistics with visual hierarchy
  */
 
+import { Card, CardBody } from '../common'
 import './StatsCards.css'
 
 export const StatsCards = ({ stats }) => {
@@ -36,13 +37,15 @@ export const StatsCards = ({ stats }) => {
   return (
     <div className="stats-grid">
       {cards.map((card) => (
-        <div key={card.label} className={`stat-card stat-${card.color}`}>
-          <div className="stat-header">
-            <span className="stat-icon">{card.icon}</span>
-            <span className="stat-label">{card.label}</span>
-          </div>
-          <div className="stat-value">{card.value}</div>
-        </div>
+        <Card key={card.label} className={`stat-card stat-${card.color}`}>
+          <CardBody className="stat-body">
+            <div className="stat-header">
+              <span className="stat-icon">{card.icon}</span>
+              <span className="stat-label">{card.label}</span>
+            </div>
+            <div className="stat-value">{card.value}</div>
+          </CardBody>
+        </Card>
       ))}
     </div>
   )

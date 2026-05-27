@@ -1,0 +1,55 @@
+/**
+ * Table Styles
+ */
+
+.table-wrapper {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xs);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+}
+
+.table thead {
+  background: var(--surface-muted);
+  border-bottom: 2px solid var(--border);
+}
+
+.table th {
+  padding: var(--space-4);
+  text-align: left;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.table td {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--border);
+  font-size: var(--font-size-base);
+  color: var(--text);
+}
+
+.table tbody tr:hover {
+  background: var(--surface-muted);
+}
+
+.table tbody tr.clickable {
+  cursor: pointer;
+  transition: background var(--transition-base);
+}
+
+.table tbody tr.clickable:hover {
+  background: var(--brand-light);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
