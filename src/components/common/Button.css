@@ -48,22 +48,21 @@
 
 /* Variants */
 .btn-primary {
-  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+  background: var(--brand);
   color: white;
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  box-shadow: none;
 }
 
 .btn-primary:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+  background: var(--brand-dark);
 }
 
 .btn-primary:active:not(:disabled) {
-  transform: translateY(0);
+  background: var(--brand-dark);
 }
 
 .btn-primary:focus {
-  box-shadow: var(--shadow-focus), 0 4px 12px rgba(79, 70, 229, 0.3);
+  box-shadow: var(--shadow-focus);
 }
 
 .btn-secondary {

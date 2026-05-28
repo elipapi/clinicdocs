@@ -73,8 +73,7 @@
 }
 
 .report-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
   border-color: var(--brand);
   cursor: pointer;
 }

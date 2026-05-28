@@ -11,36 +11,13 @@
 }
 
 .stat-card {
-  border-left: 4px solid transparent;
+  border-left: 3px solid transparent;
   transition: all var(--transition-base);
-  position: relative;
-  overflow: hidden;
-}
-
-.stat-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: -100%;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-  transition: right var(--transition-slow);
 }
 
 .stat-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
   border-left-color: inherit;
-}
-
-.stat-card:hover::after {
-  right: 100%;
 }
 
 .stat-body {

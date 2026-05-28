@@ -1,16 +1,16 @@
 /**
  * Sidebar Styles
- * Professional navigation sidebar with consistent design system
+ * Professional navigation sidebar
  */
 
 .sidebar {
   width: 280px;
-  background: linear-gradient(180deg, #1f3a58 0%, #2d4a6f 100%);
+  background: #1f2937;
   color: white;
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow-lg);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
   position: sticky;
   top: 0;
   height: 100vh;
@@ -26,20 +26,19 @@
 }
 
 .sidebar-icon {
-  width: 48px;
-  height: 48px;
-  min-width: 48px;
-  border-radius: var(--radius-lg);
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 8px;
   display: grid;
   place-items: center;
-  background: rgba(16, 185, 129, 0.2);
+  background: rgba(255, 255, 255, 0.1);
   font-size: 1.5rem;
-  border: 1px solid rgba(16, 185, 129, 0.4);
   transition: all var(--transition-base);
 }
 
 .sidebar-icon:hover {
-  background: rgba(16, 185, 129, 0.3);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .sidebar-brand h1 {
@@ -60,7 +59,7 @@
 .nav-item {
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.7);
   padding: var(--space-3) var(--space-5);
   display: flex;
   align-items: center;
@@ -70,35 +69,18 @@
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   position: relative;
-  overflow: hidden;
-}
-
-.nav-item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: var(--success);
-  transform: scaleY(0);
-  transition: transform var(--transition-base);
 }
 
 .nav-item:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   color: white;
 }
 
 .nav-item.active {
-  background: rgba(16, 185, 129, 0.15);
-  color: var(--success);
-  border-left: 4px solid var(--success);
-  padding-left: calc(var(--space-5) - 4px);
-}
-
-.nav-item.active::before {
-  transform: scaleY(1);
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  border-left: 3px solid rgba(255, 255, 255, 0.9);
+  padding-left: calc(var(--space-5) - 3px);
 }
 
 .nav-icon {

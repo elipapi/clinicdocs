@@ -68,14 +68,13 @@
   height: 48px;
   min-width: 48px;
   border-radius: var(--radius-full);
-  background: linear-gradient(135deg, var(--brand) 0%, var(--success) 100%);
+  background: var(--brand);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-base);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .activity-content {

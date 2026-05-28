@@ -36,7 +36,7 @@ body {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, #f3f5f8 0%, #eef2ff 50%, #f3f5f8 100%);
+  background: var(--bg);
 }
 
 .loading-spinner {
@@ -61,92 +61,63 @@ body {
   display: grid;
   place-items: center;
   padding: 2rem 1rem;
-  background: linear-gradient(135deg, #f3f5f8 0%, #eef2ff 50%, #f3f5f8 100%);
-  position: relative;
-}
-
-.login-shell::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(79, 70, 229, 0.05) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 0;
+  background: var(--bg);
 }
 
 .login-card {
-  width: min(540px, 100%);
+  width: min(480px, 100%);
   background: white;
-  border: 1px solid #f0f0f0;
-  border-radius: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
   padding: 2.5rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.05);
-  position: relative;
-  z-index: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .brand-row {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
-  margin-bottom: 2.5rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .brand-icon {
-  height: 64px;
-  width: 64px;
-  border-radius: 16px;
+  height: 48px;
+  width: 48px;
+  border-radius: 8px;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, #174d34 0%, #10b981 100%);
+  background: var(--brand);
   color: white;
-  font-size: 1.8rem;
-  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
+  font-size: 1.5rem;
   flex-shrink: 0;
-  transition: all 300ms ease;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.brand-icon:hover {
-  transform: scale(1.05) rotate(2deg);
-  box-shadow: 0 12px 32px rgba(16, 185, 129, 0.35);
-  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .brand-title {
   font-weight: 700;
-  font-size: 2.5rem;
-  line-height: 1.1;
-  background: linear-gradient(135deg, #174d34 0%, #10b981 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: 1.75rem;
+  color: var(--text);
   letter-spacing: -0.02em;
 }
 
 .brand-subtitle {
-  color: #5e6f86;
-  font-size: 1.1rem;
-  margin-top: 0.35rem;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
   font-weight: 500;
 }
 
 .login-copy {
-  color: #4d617a;
-  margin: 1rem 0 2.5rem;
-  font-size: 1.1rem;
+  color: var(--text-soft);
+  margin: 1.5rem 0 2rem;
+  font-size: 0.95rem;
   line-height: 1.6;
 }
 
 .input-label {
   display: block;
-  margin-bottom: 0.35rem;
-  font-size: 0.88rem;
-  color: #30455d;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text);
 }
 
 .text-input {
@@ -165,62 +136,45 @@ body {
 }
 
 .role-pill {
-  border: 1px solid #ccd5df;
-  border-radius: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
   padding: 0.5rem 0.8rem;
   background: white;
-  color: #1f3a58;
+  color: var(--text);
   cursor: pointer;
+  font-size: 0.9rem;
 }
 
 .role-pill.active {
-  background: #e9f1ff;
-  border-color: #4f46e5;
-  color: #2b32a8;
+  background: var(--brand-light);
+  border-color: var(--brand);
+  color: var(--brand);
 }
 
 .google-btn {
   width: 100%;
   border: 1px solid #ddd;
   background: white;
-  border-radius: 12px;
-  padding: 1.1rem 1rem;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.9rem;
+  gap: 0.75rem;
   font-weight: 600;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   cursor: pointer;
-  transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  position: relative;
-  overflow: hidden;
-}
-
-.google-btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
-  opacity: 0;
-  transition: opacity 300ms ease;
-  pointer-events: none;
+  transition: all 250ms ease;
+  box-shadow: none;
 }
 
 .google-btn:hover {
   border-color: #4285f4;
-  box-shadow: 0 4px 20px rgba(66, 133, 244, 0.3), 0 2px 8px rgba(0, 0, 0, 0.08);
-  transform: translateY(-2px);
-}
-
-.google-btn:hover::before {
-  opacity: 1;
+  background: #f8f9fa;
 }
 
 .google-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: #eff0f1;
 }
 
 .google-icon {
@@ -244,49 +198,30 @@ body {
 }
 
 .benefit-card {
-  background: linear-gradient(135deg, #f0fdf4 0%, #ecf7ee 100%);
-  border: 1px solid rgba(16, 185, 129, 0.2);
-  border-radius: 14px;
-  padding: 1.5rem;
-  transition: all 300ms ease;
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.08);
-  position: relative;
-  overflow: hidden;
-}
-
-.benefit-card::before {
-  content: '';
-  position: absolute;
-  top: -100%;
-  right: -100%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
-  transition: all 400ms ease;
+  background: var(--success-50);
+  border: 1px solid #d1e7dd;
+  border-radius: 8px;
+  padding: 1.25rem;
+  transition: all 250ms ease;
+  box-shadow: none;
 }
 
 .benefit-card:hover {
-  border-color: rgba(16, 185, 129, 0.4);
-  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.15);
-  transform: translateY(-4px);
-}
-
-.benefit-card:hover::before {
-  top: -50%;
-  right: -50%;
+  border-color: var(--success);
+  box-shadow: var(--shadow-sm);
 }
 
 .benefit-card strong {
   display: block;
   margin-bottom: 0.5rem;
-  font-size: 1.3rem;
-  color: #10b981;
+  font-size: 1.1rem;
+  color: var(--success);
   font-weight: 700;
 }
 
 .benefit-card p {
-  color: #059669;
-  font-size: 1rem;
+  color: var(--success);
+  font-size: 0.9rem;
   line-height: 1.4;
 }
 
@@ -391,34 +326,15 @@ body {
 .stat-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 8px;
   padding: 1.25rem;
-  transition: var(--transition);
-  box-shadow: var(--shadow-sm);
-  position: relative;
-  overflow: hidden;
-}
-
-.stat-card::before {
-  content: '';
-  position: absolute;
-  top: -100%;
-  right: -100%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(79, 70, 229, 0.05) 0%, transparent 70%);
-  transition: all 400ms ease;
+  transition: 250ms ease;
+  box-shadow: none;
 }
 
 .stat-card:hover {
   border-color: var(--brand);
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
-}
-
-.stat-card:hover::before {
-  top: -50%;
-  right: -50%;
+  box-shadow: var(--shadow-sm);
 }
 
 .stat-card p {
@@ -447,10 +363,10 @@ body {
 .panel {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 8px;
   padding: 1.5rem;
-  transition: var(--transition);
-  box-shadow: var(--shadow-sm);
+  transition: 250ms ease;
+  box-shadow: none;
 }
 
 .panel-heading {
@@ -480,7 +396,7 @@ body {
 .primary:hover,
 .ghost:hover {
   border-color: var(--brand);
-  transform: translateY(-1px);
+  background: var(--surface);
 }
 
 .patient-list {
@@ -492,7 +408,7 @@ body {
   width: 100%;
   border: 1px solid var(--border);
   background: transparent;
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 0.85rem;
   display: flex;
   justify-content: space-between;
@@ -500,13 +416,12 @@ body {
   text-align: left;
   margin-bottom: 0.65rem;
   cursor: pointer;
-  transition: var(--transition);
+  transition: 250ms ease;
 }
 
 .patient-item:hover {
   border-color: var(--brand);
   background: var(--brand-light);
-  transform: translateX(4px);
 }
 
 .patient-item strong {
@@ -552,17 +467,16 @@ body {
 .metric-row article {
   flex: 1;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 1rem;
-  background: linear-gradient(135deg, var(--surface) 0%, var(--surface-muted) 100%);
-  transition: var(--transition);
+  background: var(--surface);
+  transition: 250ms ease;
   text-align: center;
 }
 
 .metric-row article:hover {
   border-color: var(--brand);
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.1);
-  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .metric-row p {
