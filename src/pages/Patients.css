@@ -519,11 +519,6 @@
   }
 }
 
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 1.5rem;
-}
-
 .patients-list {
   background: white;
   border-radius: 14px;
